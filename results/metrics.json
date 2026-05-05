@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "pyedflib_version": "0.1.42",
+    "fs_hz": 1000,
+    "real_duration_s": 10.0,
+    "quant_threshold_mv": 0.00011444091796875,
+    "dominant_freq_hz": 80.0
+  },
+  "duration": {
+    "real_s": 10.0,
+    "naive_s": 100.0,
+    "buffered_s": 10.0,
+    "naive_inflation_factor": 10.0
+  },
+  "rms_mv": {
+    "original": 0.21755990716451432,
+    "naive": 0.06877732007685511,
+    "buffered": 0.21749286236805151,
+    "naive_attenuation_factor": 3.163250718716611
+  },
+  "padded_fraction_pct": {
+    "naive": 90.007,
+    "buffered": 0.07
+  },
+  "spectral_psd_mv2_per_hz_at_80Hz": {
+    "original": 0.030561747201185152,
+    "naive": 0.0005939943712354993,
+    "buffered": 0.03054320773619222,
+    "naive_attenuation_factor": 51.451240417678
+  }
+}

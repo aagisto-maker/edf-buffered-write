@@ -1,0 +1,31 @@
+{
+  "title": "edf-buffered-write: reproducibility package for the Short Communication 'Silent corruption of EDF recordings during real-time biopotential streaming'",
+  "description": "Code, scripts and metric files needed to reproduce all figures and numerical results of the Short Communication submitted to Biomedical Signal Processing and Control. Demonstrates the antipattern of writing short blocks per pyedflib writeSamples() call, and the buffered-write pattern that fixes it.",
+  "creators": [
+    {
+      "name": "Agis-Torres, Ángel",
+      "affiliation": "Faculty of Pharmacy, Universidad Complutense de Madrid"
+    }
+  ],
+  "keywords": [
+    "EDF",
+    "EDF+",
+    "pyedflib",
+    "electromyography",
+    "biopotential acquisition",
+    "reproducibility",
+    "real-time signal processing"
+  ],
+  "license": "GPL-3.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "10.XXXX/XXXXXXX",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ]
+}
