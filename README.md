@@ -5,7 +5,7 @@ all figures and numerical results reported in the accompanying manuscript,
 *Silent corruption of EDF recordings during real-time biopotential streaming: a
 buffered-write solution* (under review).
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20042879.svg)](https://doi.org/10.5281/zenodo.20042879)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20042879.svg)](https://doi.org/10.5281/zenodo.20042878)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## What this package shows
@@ -69,9 +69,8 @@ If you use this code, please cite both the article and the software:
 
 - Agis-Torres, Á. (2026). Silent corruption of EDF recordings during real-time
   biopotential streaming: a buffered-write solution. Manuscript under review.
-- Agis-Torres, Á. (2026). edf-buffered-write (Version 1.0.0) [Software].
-  Zenodo. https://doi.org/10.5281/zenodo.20042879
-
+- Agis-Torres, Á. (2026). edf-buffered-write (Version 1.0.1) [Software].
+  Zenodo. https://doi.org/10.5281/zenodo.20107850
 A `CITATION.cff` file is provided for automatic citation export from GitHub.
 
 ## Declaration of generative AI
