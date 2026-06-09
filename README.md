@@ -1,17 +1,18 @@
 # Reproducibility package for: Silent corruption of EDF recordings during real-time biopotential streaming
 
 This repository contains the code, scripts and metric files needed to reproduce
-all figures and numerical results of the Short Communication submitted to
-*Biomedical Signal Processing and Control*.
+all figures and numerical results reported in the accompanying manuscript,
+*Silent corruption of EDF recordings during real-time biopotential streaming: a
+buffered-write solution* (under review).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20042879.svg)](https://doi.org/10.5281/zenodo.20042879)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## What this package shows
 
-A common antipattern in real-time biopotential acquisition with `pyedflib` —
+A common antipattern in real-time biopotential acquisition with `pyedflib`,
 calling `writeSamples()` once per device read with fewer samples than the EDF
-data record — silently produces files that are an order of magnitude longer
+data record, silently produces files that are an order of magnitude longer
 than the actual recording, with attenuated RMS amplitude and severely distorted
 power spectral density. This package quantifies the effect on a synthetic EMG
 signal and demonstrates a buffered-write pattern that eliminates the artefact.
@@ -67,8 +68,7 @@ file.
 If you use this code, please cite both the article and the software:
 
 - Agis-Torres, Á. (2026). Silent corruption of EDF recordings during real-time
-  biopotential streaming: a buffered-write solution. *Biomedical Signal
-  Processing and Control*, in press.
+  biopotential streaming: a buffered-write solution. Manuscript under review.
 - Agis-Torres, Á. (2026). edf-buffered-write (Version 1.0.0) [Software].
   Zenodo. https://doi.org/10.5281/zenodo.20042879
 
@@ -77,7 +77,7 @@ A `CITATION.cff` file is provided for automatic citation export from GitHub.
 ## Declaration of generative AI
 
 The Python scripts in this repository were developed with the assistance of
-Claude (Anthropic, model Opus 4.7), and were reviewed and tested by the author.
+Claude (Anthropic), and were reviewed and tested by the author.
 
 ## License
 
