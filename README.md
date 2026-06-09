@@ -5,7 +5,7 @@ all figures and numerical results reported in the accompanying manuscript,
 *Silent corruption of EDF recordings during real-time biopotential streaming: a
 buffered-write solution* (under review).
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20042879.svg)](https://doi.org/10.5281/zenodo.20042878)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20042878.svg)](https://doi.org/10.5281/zenodo.20042878)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## What this package shows
