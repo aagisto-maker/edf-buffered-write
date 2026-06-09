@@ -9,7 +9,7 @@ authors:
     affiliation: "Faculty of Pharmacy, Universidad Complutense de Madrid"
 license: GPL-3.0
 repository-code: "https://github.com/aagisto-maker/edf-buffered-write"
-doi: 10.5281/zenodo.20042879
+doi: 10.5281/zenodo.20042878
 keywords:
   - EDF
   - EDF+
