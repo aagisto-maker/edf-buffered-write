@@ -2,7 +2,7 @@
 
 Este documento describe, paso a paso, qué hacer y en qué orden para tener el
 repositorio listo antes de subir el manuscrito al sistema editorial de
-Biomedical Signal Processing and Control.
+la revista de destino.
 
 Todos los pasos requieren cuentas gratuitas: GitHub y Zenodo (este último se
 accede con ORCID, que también es gratuito). Si no tienes ORCID aún, créalo
@@ -54,7 +54,7 @@ git config --global user.email "tu-correo-ucm@ucm.es"
 1. Ve a https://github.com/new
 2. Configura:
    - **Repository name**: `edf-buffered-write` (o el nombre que prefieras)
-   - **Description**: "Reproducibility package for the BSPC short communication on EDF buffered writing"
+   - **Description**: "Reproducibility package for the journal on EDF buffered writing"
    - **Public** ✓ (es imprescindible que sea público para que Zenodo lo
      archive y para que los revisores accedan)
    - **Add a README file** ✓
@@ -104,7 +104,7 @@ proporcionado por separado.
 
 ```bash
 git add .
-git commit -m "Initial release of reproducibility package for BSPC submission"
+git commit -m "Initial release of reproducibility package for journal submission"
 git push origin main
 ```
 
@@ -144,7 +144,7 @@ paper, y que las figuras se reproducen.
 En tu terminal:
 
 ```bash
-git tag -a v1.0.0 -m "Version 1.0.0 — submission to BSPC"
+git tag -a v1.0.0 -m "Version 1.0.0 — submission to journal"
 git push origin v1.0.0
 ```
 
@@ -155,7 +155,7 @@ Luego en la web de GitHub:
 3. **Release title**: `v1.0.0 — BSPC submission`
 4. **Description**: una frase breve, p. ej.:
    "First public release of the reproducibility package. Corresponds to the
-   manuscript submitted to Biomedical Signal Processing and Control."
+   manuscript submitted to journal."
 5. **Publish release**
 
 ### 3.3. Recoger el DOI en Zenodo
@@ -199,7 +199,7 @@ asignado a v1.0.0 y el archivo en Zenodo es inmutable.)
 
 ---
 
-## Fase 5 — Comprobaciones finales antes de enviar a BSPC
+## Fase 5 — Comprobaciones finales antes de enviar a la revista de destino
 
 - [ ] El repo es **público** (no privado)
 - [ ] El badge del DOI de Zenodo aparece y enlaza correctamente
@@ -221,7 +221,7 @@ asignado a v1.0.0 y el archivo en Zenodo es inmutable.)
    de incógnito sin sesión iniciada en GitHub.
 
 2. **DOI "to be assigned upon acceptance".** Hay revistas que lo aceptan,
-   pero BSPC y la tendencia actual es exigir el DOI desde la submission.
+   pero la revista de destino y la tendencia actual es exigir el DOI desde la submission.
    Habiendo hecho la Fase 3, ya no es un problema.
 
 3. **`requirements.txt` con versiones flotantes** (`numpy>=1.20`). Un revisor
