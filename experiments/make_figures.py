@@ -75,7 +75,7 @@ def fig_timedomain():
     for a in ax:
         a.set_ylabel("Amplitude (mV)")
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, "Fig_timedomain_burst_padding.png"), dpi=200)
+    fig.savefig(os.path.join(OUT, "Fig_timedomain_burst_padding.png"), dpi=300)
     plt.close(fig)
 
 
@@ -92,7 +92,7 @@ def fig_inflation():
     plt.xlabel("block / record size"); plt.ylabel("file-duration inflation (×)")
     plt.yscale("log"); plt.xscale("log"); plt.legend()
     plt.title("Silent inflation follows fs·d / block"); plt.tight_layout()
-    plt.savefig(os.path.join(OUT, "Fig_inflation_law.png"), dpi=200); plt.close()
+    plt.savefig(os.path.join(OUT, "Fig_inflation_law.png"), dpi=300); plt.close()
 
 
 def fig_psd():
@@ -108,7 +108,7 @@ def fig_psd():
     plt.semilogy(fn, Pn, ":", lw=1.2, label="naive (bug)")
     plt.xlabel("Frequency (Hz)"); plt.ylabel("PSD (mV²/Hz)"); plt.xlim(0, 200)
     plt.legend(); plt.title("Spectral contamination (fs=1 kHz, block=100, record=1 s)")
-    plt.tight_layout(); plt.savefig(os.path.join(OUT, "Fig_PSD_contamination.png"), dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(os.path.join(OUT, "Fig_PSD_contamination.png"), dpi=300); plt.close()
 
 
 if __name__ == "__main__":

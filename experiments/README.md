@@ -14,7 +14,8 @@ round-trip on a real surface-EMG recording.
 | `harness_multilibrary.py` | Multi-configuration sweep (Table 1) and three-implementation comparison (Table 2). Prints all numbers. |
 | `realdata_roundtrip.py` | Round-trip of a real EDF recording through the naive and buffered writers; produces `Fig_realdata_PSD.png`. |
 | `make_figures.py` | Regenerates the synthetic-signal figures (time-domain, inflation law, PSD). |
-| `Fig_*.png` | Figures used in the manuscript. |
+| `make_pseudocode.py` | Regenerates the side-by-side pseudocode figure (`Fig_pseudocode.png`). |
+| `Fig_*.png` | Figures used in the manuscript (300 DPI). |
 | `RESULTS-batch1.md`, `RESULTS-batch2.md` | Logged numeric results. |
 
 ## Requirements
@@ -34,6 +35,9 @@ python harness_multilibrary.py
 # Synthetic-signal figures (time-domain, inflation law, PSD)
 python make_figures.py
 
+# Pseudocode figure
+python make_pseudocode.py
+
 # Real-data round-trip (Figure 5): provide any valid EDF recording
 python realdata_roundtrip.py your_recording.edf 1 100
 ```
@@ -42,13 +46,10 @@ The real surface-EMG recordings used in the paper are not redistributed here for
 privacy reasons; they are available from the author on reasonable request. The
 round-trip script works with any valid EDF file.
 
-## Figure provenance
+## Figures
 
-`Fig_inflation_law.png` and `Fig_PSD_contamination.png` are reproduced
-byte-for-byte by `make_figures.py`; `Fig_timedomain_burst_padding.png` is an
-equivalent regeneration (same signal and seed). `Fig_pseudocode.png` is a static
-illustration of the pseudocode shown in the paper. `Fig_realdata_PSD.png` is
-produced by `realdata_roundtrip.py`.
-
-All results use a fixed random seed, so the numbers are reproducible across
-machines.
+All figures are written at 300 DPI. `make_figures.py` regenerates the three
+synthetic-signal figures deterministically (fixed random seed 42), so the
+numbers are reproducible across machines; `make_pseudocode.py` regenerates the
+pseudocode illustration; `Fig_realdata_PSD.png` is produced by
+`realdata_roundtrip.py` from a real EDF recording.

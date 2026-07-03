@@ -73,7 +73,7 @@ def main():
     plt.title(f"Real EDF round-trip: {os.path.basename(path)} (ch {label})")
     plt.tight_layout()
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fig_realdata_PSD.png")
-    plt.savefig(out, dpi=200); print("figure saved:", out)
+    plt.savefig(out, dpi=300); print("figure saved:", out)
 
 if __name__ == "__main__":
     main()
