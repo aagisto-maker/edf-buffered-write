@@ -1,31 +1,25 @@
 {
-  "title": "edf-buffered-write: reproducibility package for the Short Communication 'Silent corruption of EDF recordings during real-time biopotential streaming'",
-  "description": "Code, scripts and metric files needed to reproduce all figures and numerical results of the Short Communication submitted to Biomedical Signal Processing and Control. Demonstrates the antipattern of writing short blocks per pyedflib writeSamples() call, and the buffered-write pattern that fixes it.",
+  "title": "edf-buffered-write: reproducibility package for 'Silent corruption of EDF recordings during real-time biopotential streaming: a buffered-write solution'",
+  "description": "Code, scripts and data needed to reproduce all figures and numerical results of the manuscript (under review). It characterises a silent data-corruption failure that arises when real-time acquisition software writes sub-record blocks to an EDF file with incremental writers such as pyedflib, quantifies it across sampling rates, record durations, block sizes and channel counts, compares three independent EDF-writing implementations (pyedflib, EDFlib-Python, edfio), reproduces it on a real surface-EMG recording, and provides a buffered-write pattern and a round-trip integrity test that remove and detect it.",
   "creators": [
     {
       "name": "Agis-Torres, Ángel",
-      "affiliation": "Faculty of Pharmacy, Universidad Complutense de Madrid"
+      "affiliation": "Faculty of Pharmacy, Universidad Complutense de Madrid",
+      "orcid": "0000-0002-3548-7264"
     }
   ],
   "keywords": [
     "EDF",
     "EDF+",
     "pyedflib",
+    "incremental file writing",
     "electromyography",
     "biopotential acquisition",
-    "reproducibility",
-    "real-time signal processing"
+    "data integrity",
+    "reproducibility"
   ],
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "upload_type": "software",
   "access_right": "open",
-  "language": "eng",
-  "related_identifiers": [
-    {
-      "identifier": "10.XXXX/XXXXXXX",
-      "relation": "isSupplementTo",
-      "resource_type": "publication-article",
-      "scheme": "doi"
-    }
-  ]
+  "language": "eng"
 }
