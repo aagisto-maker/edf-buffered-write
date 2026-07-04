@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite both the article and the software."
 title: "edf-buffered-write: reproducibility package for buffered EDF writing"
-version: 2.1.0
+version: 2.2.0
 date-released: "2026-07-04"
 authors:
   - family-names: "Agis-Torres"
@@ -19,7 +19,7 @@ keywords:
   - reproducibility
 preferred-citation:
   type: article
-  title: "Preventing and detecting silent EDF corruption in real-time biopotential streaming: a buffer-then-flush writing method and a round-trip integrity test"
+  title: "edf-buffered-write: a buffer-then-flush writer and a round-trip integrity test that prevent and detect silent corruption of European Data Format recordings"
   authors:
     - family-names: "Agis-Torres"
       given-names: "Ángel"
