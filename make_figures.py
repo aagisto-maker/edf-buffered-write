@@ -65,9 +65,11 @@ def fig_timedomain():
     fig, ax = plt.subplots(2, 1, figsize=(8, 5), sharex=True)
     ax[0].plot(t, sn[:5 * fs], lw=0.6, color="k")
     ax[0].set_title("(a) Streaming without buffering: one write per 100-sample block")
-    ax[0].annotate("100 ms of real data", xy=(0.05, 0.35), xytext=(0.7, 0.42),
+    ax[0].annotate("100 ms of\nreal data", xy=(4.06, 0.33), xytext=(4.55, 0.27),
+                   ha="center", va="center",
                    arrowprops=dict(arrowstyle="->", color="0.4"), fontsize=9)
-    ax[0].annotate("900 ms of silent padding", xy=(0.5, 0.0), xytext=(1.2, -0.3),
+    ax[0].annotate("900 ms of\nsilent padding", xy=(4.5, 0.0), xytext=(4.55, -0.27),
+                   ha="center", va="center",
                    arrowprops=dict(arrowstyle="->", color="0.4"), fontsize=9)
     ax[1].plot(t, sb[:5 * fs], lw=0.6, color="k")
     ax[1].set_title("(b) Streaming with buffered writes: one write per full data record")

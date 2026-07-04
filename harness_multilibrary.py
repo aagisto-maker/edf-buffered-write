@@ -45,47 +45,51 @@ def metrics(orig_ch0,dur,sig,T):
     pct=100*np.mean(np.abs(sig)<LSB)
     return dur/T, rms_r/rms_o, pct
 
-print("="*74)
-print("A) THREE IMPLEMENTATIONS — base config: fs=1000 Hz, record=1 s, block=100, T=10 s, 1 ch")
-print("="*74)
-data=gen(10,1000,1); orig=data[0]
-# pyedflib naive + buffered
-pyedflib_write('n.edf',data,1000,1.0,100,False); d,s=readback('n.edf'); inf,rr,pc=metrics(orig,d,s,10)
-print(f"pyedflib (EDFlib C-wrapper), NAIVE incremental : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
-pyedflib_write('b.edf',data,1000,1.0,100,True); d,s=readback('b.edf'); inf,rr,pc=metrics(orig,d,s,10)
-print(f"pyedflib, BUFFERED                             : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
-# EDFlib-Python naive
-try:
-    from EDFlib.edfwriter import EDFwriter
-    p='e.edf'
-    if os.path.exists(p): os.remove(p)
-    w=EDFwriter(p,EDFwriter.EDFLIB_FILETYPE_EDFPLUS,1)
-    w.setSampleFrequency(0,1000); w.setPhysicalMaximum(0,PMAX); w.setPhysicalMinimum(0,PMIN)
-    w.setDigitalMaximum(0,DMAX); w.setDigitalMinimum(0,DMIN); w.setPhysicalDimension(0,'mV')
-    for s0 in range(0,len(orig),100):
-        w.writeSamples(np.ascontiguousarray(orig[s0:s0+100]))
-    w.close()
-    d,s=readback('e.edf'); inf,rr,pc=metrics(orig,d,s,10)
-    print(f"EDFlib-Python (pure-Python port), NAIVE incr.  : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
-except Exception as ex:
-    print("EDFlib-Python test note:",type(ex).__name__,ex)
-# edfio (whole-file) — no streaming path
-import edfio
-es=edfio.EdfSignal(orig, sampling_frequency=1000, label='ch0', physical_range=(PMIN,PMAX))
-edfio.Edf([es]).write('io.edf')
-d,s=readback('io.edf'); inf,rr,pc=metrics(orig,d,s,10)
-print(f"edfio (independent, WHOLE-FILE, no streaming)  : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
-print("   -> edfio has no incremental/per-block write API; the pitfall cannot arise.")
+def main():
+    print("="*74)
+    print("A) THREE IMPLEMENTATIONS — base config: fs=1000 Hz, record=1 s, block=100, T=10 s, 1 ch")
+    print("="*74)
+    data=gen(10,1000,1); orig=data[0]
+    # pyedflib naive + buffered
+    pyedflib_write('n.edf',data,1000,1.0,100,False); d,s=readback('n.edf'); inf,rr,pc=metrics(orig,d,s,10)
+    print(f"pyedflib (EDFlib C-wrapper), NAIVE incremental : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
+    pyedflib_write('b.edf',data,1000,1.0,100,True); d,s=readback('b.edf'); inf,rr,pc=metrics(orig,d,s,10)
+    print(f"pyedflib, BUFFERED                             : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
+    # EDFlib-Python naive
+    try:
+        from EDFlib.edfwriter import EDFwriter
+        p='e.edf'
+        if os.path.exists(p): os.remove(p)
+        w=EDFwriter(p,EDFwriter.EDFLIB_FILETYPE_EDFPLUS,1)
+        w.setSampleFrequency(0,1000); w.setPhysicalMaximum(0,PMAX); w.setPhysicalMinimum(0,PMIN)
+        w.setDigitalMaximum(0,DMAX); w.setDigitalMinimum(0,DMIN); w.setPhysicalDimension(0,'mV')
+        for s0 in range(0,len(orig),100):
+            w.writeSamples(np.ascontiguousarray(orig[s0:s0+100]))
+        w.close()
+        d,s=readback('e.edf'); inf,rr,pc=metrics(orig,d,s,10)
+        print(f"EDFlib-Python (pure-Python port), NAIVE incr.  : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
+    except Exception as ex:
+        print("EDFlib-Python test note:",type(ex).__name__,ex)
+    # edfio (whole-file) — no streaming path
+    import edfio
+    es=edfio.EdfSignal(orig, sampling_frequency=1000, label='ch0', physical_range=(PMIN,PMAX))
+    edfio.Edf([es]).write('io.edf')
+    d,s=readback('io.edf'); inf,rr,pc=metrics(orig,d,s,10)
+    print(f"edfio (independent, WHOLE-FILE, no streaming)  : duration={d:.0f}s  inflation={inf:.1f}x  RMS_ratio={rr:.3f}  %<1LSB={pc:.1f}")
+    print("   -> edfio has no incremental/per-block write API; the pitfall cannot arise.")
 
-print()
-print("="*74)
-print("B) pyedflib CONFIG SWEEP (naive incremental).  inflation_theory = fs*d / block")
-print("="*74)
-print(f"{'fs':>6}{'rec_s':>7}{'block':>7}{'nch':>5}{'inflation':>11}{'RMS_ratio':>11}{'%<1LSB':>9}")
-sweep=[(256,1.0,32,1),(1000,1.0,100,1),(1000,1.0,100,4),(1000,0.1,10,1),
-       (1000,5.0,100,1),(4000,1.0,200,1),(1000,1.0,50,1),(1000,1.0,250,1)]
-for fs,d,block,nch in sweep:
-    data=gen(10,fs,nch); orig=data[0]
-    pyedflib_write('n.edf',data,fs,d,block,False)
-    dur,s=readback('n.edf'); inf,rr,pc=metrics(orig,dur,s,10)
-    print(f"{fs:>6}{d:>7}{block:>7}{nch:>5}{inf:>10.1f}x{rr:>11.3f}{pc:>9.1f}")
+    print()
+    print("="*74)
+    print("B) pyedflib CONFIG SWEEP (naive incremental).  inflation_theory = fs*d / block")
+    print("="*74)
+    print(f"{'fs':>6}{'rec_s':>7}{'block':>7}{'nch':>5}{'inflation':>11}{'RMS_ratio':>11}{'%<1LSB':>9}")
+    sweep=[(256,1.0,32,1),(1000,1.0,100,1),(1000,1.0,100,4),(1000,0.1,10,1),
+           (1000,5.0,100,1),(4000,1.0,200,1),(1000,1.0,50,1),(1000,1.0,250,1)]
+    for fs,d,block,nch in sweep:
+        data=gen(10,fs,nch); orig=data[0]
+        pyedflib_write('n.edf',data,fs,d,block,False)
+        dur,s=readback('n.edf'); inf,rr,pc=metrics(orig,dur,s,10)
+        print(f"{fs:>6}{d:>7}{block:>7}{nch:>5}{inf:>10.1f}x{rr:>11.3f}{pc:>9.1f}")
+
+if __name__ == "__main__":
+    main()

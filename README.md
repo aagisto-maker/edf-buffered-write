@@ -5,6 +5,7 @@ manuscript *"Preventing and detecting silent EDF corruption in real-time
 biopotential streaming: a buffer-then-flush writing method and a round-trip
 integrity test"* (under review).
 
+[![CI](https://github.com/aagisto-maker/edf-buffered-write/actions/workflows/ci.yml/badge.svg)](https://github.com/aagisto-maker/edf-buffered-write/actions/workflows/ci.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21163099.svg)](https://doi.org/10.5281/zenodo.21163099)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -27,20 +28,23 @@ the effect and provides two remedies:
    the writing library.
 
 The effect is quantified across a configuration sweep, compared across three
-independent EDF writers (pyedflib, EDFlib-Python, edfio), and reproduced on a
-real surface-EMG recording.
+EDF writers (`pyedflib` and `EDFlib-Python`, both built on van Beelen's EDFlib,
+and the independent `edfio`), and reproduced on a real surface-EMG recording.
 
 ## Contents
 
 | File | Purpose |
 |---|---|
-| `harness_multilibrary.py` | Configuration sweep (Table 1) and three-implementation comparison (Table 2). Prints all numbers. |
+| `harness_multilibrary.py` | Configuration sweep (Table 1) and three-implementation comparison (Table 2). Prints all numbers. Its functions are importable (guarded `main()`). |
+| `test_roundtrip.py` | Automated round-trip integrity tests (`pytest`): the naive pattern must corrupt, the buffered pattern must preserve, and the inflation law must hold across configs. |
+| `.github/workflows/ci.yml` | Continuous-integration workflow running the tests on Python 3.10–3.12. |
 | `make_figures.py` | Regenerates the synthetic-signal figures (time-domain, inflation law, PSD contamination). |
 | `make_pseudocode.py` | Regenerates the side-by-side pseudocode figure. |
 | `realdata_roundtrip.py` | Round-trip of a real EDF recording through the naive and buffered writers; produces `Fig_realdata_PSD.png`. |
 | `emgteach_real_sEMG_2ch_1kHz_58s.edf` | De-identified real surface-EMG recording used for the real-data round-trip (Figure 5). |
 | `Fig_*.png` | The five manuscript figures (300 dpi). |
 | `requirements.txt` | Pinned dependency versions. |
+| `DATA_LICENSE.md` / `LICENSE-CC0-1.0.txt` | Data license (CC0-1.0, public domain) for the de-identified `.edf` recordings, separate from the GPL-3.0 code. |
 
 ## Requirements
 
@@ -64,9 +68,25 @@ python make_figures.py
 # Pseudocode figure
 python make_pseudocode.py
 
-# Real-data round-trip (Figure 5), using the included de-identified recording
+# Real-data round-trip, using the included de-identified recording
 python realdata_roundtrip.py emgteach_real_sEMG_2ch_1kHz_58s.edf 1 100
 ```
+
+## Testing
+
+The round-trip integrity check is exercised by an automated test suite:
+
+```bash
+pip install pytest
+pytest -v
+```
+
+`test_roundtrip.py` asserts that the naive per-block writer corrupts the
+recording (duration inflated by `fs*d/block`, RMS attenuated by its square root,
+signal filled with padding), that the buffer-then-flush writer preserves
+duration and amplitude, and that the deterministic inflation law holds across a
+range of sampling rates, record durations and block sizes. The same tests run
+in continuous integration on Python 3.10–3.12 (`.github/workflows/ci.yml`).
 
 All synthetic results use a fixed random seed (42), so the numbers are
 reproducible across machines. Base configuration (fs = 1 kHz, 1 s records,
@@ -110,4 +130,9 @@ The scripts in this repository were developed with the assistance of Claude
 
 ## License
 
-GPL-3.0. See `LICENSE`.
+This repository is dual-licensed:
+
+- **Code** (scripts, CI workflow, configuration) under **GPL-3.0** — see `LICENSE`.
+- **Data** (the two de-identified `.edf` surface-EMG recordings) released into
+  the public domain under **CC0-1.0** — see `DATA_LICENSE.md` and
+  `LICENSE-CC0-1.0.txt`.

@@ -9,3 +9,4 @@ real_buffered.edf
 # python
 __pycache__/
 *.pyc
+.pytest_cache/
