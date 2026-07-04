@@ -1,6 +1,0 @@
-pyedflib==0.1.42
-EDFlib-Python==1.0.8
-edfio==0.4.13
-numpy
-scipy
-matplotlib

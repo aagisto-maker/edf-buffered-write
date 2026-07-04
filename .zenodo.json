@@ -1,25 +1,26 @@
 {
-  "title": "edf-buffered-write: reproducibility package for 'Silent corruption of EDF recordings during real-time biopotential streaming: a buffered-write solution'",
-  "description": "Code, scripts and data needed to reproduce all figures and numerical results of the manuscript (under review). It characterises a silent data-corruption failure that arises when real-time acquisition software writes sub-record blocks to an EDF file with incremental writers such as pyedflib, quantifies it across sampling rates, record durations, block sizes and channel counts, compares three independent EDF-writing implementations (pyedflib, EDFlib-Python, edfio), reproduces it on a real surface-EMG recording, and provides a buffered-write pattern and a round-trip integrity test that remove and detect it.",
+  "upload_type": "software",
+  "title": "edf-buffered-write: reproducibility package for buffered EDF writing",
+  "version": "2.1.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "GPL-3.0-or-later",
   "creators": [
     {
       "name": "Agis-Torres, Ángel",
-      "affiliation": "Faculty of Pharmacy, Universidad Complutense de Madrid",
+      "affiliation": "Departmental Section of Physiology, Faculty of Pharmacy, Universidad Complutense de Madrid",
       "orcid": "0000-0002-3548-7264"
     }
   ],
+  "description": "<p>Code, scripts and data to reproduce every figure and numerical result of the manuscript <em>Preventing and detecting silent EDF corruption in real-time biopotential streaming: a buffer-then-flush writing method and a round-trip integrity test</em> (under review).</p><p>When real-time acquisition software writes sub-record device blocks straight to an incremental EDF writer, each write commits a full data record padded to length: the resulting EDF+ file is structurally valid yet inflated by the record-to-block ratio, with attenuated RMS amplitude and a distorted power spectrum, and no error is raised. This package characterises the effect across a configuration sweep and across three independent EDF writers (pyedflib, EDFlib-Python, edfio), and provides two remedies: a <strong>buffer-then-flush</strong> writing pattern that commits only complete records, and a library-independent <strong>round-trip integrity test</strong> that compares reported duration, RMS amplitude and power spectral density. The failure and its remedy are reproduced on two real surface-EMG recordings acquired with independent hardware chains (a BITalino board and an Arduino-compatible board with a MyoWare 2.0 sensor), included here as de-identified EDF+ files.</p>",
   "keywords": [
-    "EDF",
+    "European Data Format",
     "EDF+",
-    "pyedflib",
     "incremental file writing",
-    "electromyography",
     "biopotential acquisition",
+    "electromyography",
+    "pyedflib",
     "data integrity",
     "reproducibility"
-  ],
-  "license": "GPL-3.0-only",
-  "upload_type": "software",
-  "access_right": "open",
-  "language": "eng"
+  ]
 }
