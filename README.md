@@ -6,7 +6,7 @@ Data Format recordings during real-time biopotential streaming.
 
 [![CI](https://github.com/aagisto-maker/edf-buffered-write/actions/workflows/ci.yml/badge.svg)](https://github.com/aagisto-maker/edf-buffered-write/actions/workflows/ci.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21163099.svg)](https://doi.org/10.5281/zenodo.21163099)
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 The DOI above is the *concept* DOI and always resolves to the latest version.
 
@@ -81,7 +81,7 @@ bw.close()                                # flushes and closes the writer
 | `emgteach_real_sEMG_MyoWare_1ch_1kHz_24s.edf` | De-identified real surface-EMG recording, MyoWare 2.0 + Arduino-compatible board, 1 ch, 1 kHz, 24 s (manuscript **Figure 3**). |
 | `Fig_*.png` | Manuscript and characterisation figures (300 dpi). |
 | `requirements.txt` | Pinned dependency versions. |
-| `DATA_LICENSE.md` / `LICENSE-CC0-1.0.txt` | Data licence (CC0-1.0) for the de-identified `.edf` recordings, separate from the GPL-3.0 code. |
+| `DATA_LICENSE.md` / `LICENSE-CC0-1.0.txt` | Data licence (CC0-1.0) for the de-identified `.edf` recordings, separate from the MIT-licensed code. |
 
 Manuscript figure map: **Figure 1** = `Fig_timedomain_burst_padding.png`
 (time-domain bursts + padding vs. continuous signal); **Figure 2** =
@@ -184,8 +184,9 @@ The code in this repository was developed with the assistance of Claude
 
 This repository is dual-licensed:
 
-- **Code** (library, scripts, CI workflow, configuration) under **GPL-3.0** — see
-  `LICENSE`.
+- **Code** (library, scripts, CI workflow, configuration) under the **MIT License**
+  — see `LICENSE`. A permissive licence is deliberate: the buffer-then-flush
+  pattern is meant to be copied directly into other acquisition loops.
 - **Data** (the two de-identified `.edf` surface-EMG recordings) released into the
   public domain under **CC0-1.0** — see `DATA_LICENSE.md` and
   `LICENSE-CC0-1.0.txt`.

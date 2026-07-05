@@ -2,8 +2,9 @@
 
 This repository is **dual-licensed**:
 
-- **Software** (all `.py` scripts, the CI workflow and configuration files) is
-  licensed under the **GNU General Public License v3.0** — see `LICENSE`.
+- **Software** (the `edf_buffered_write` library, all `.py` scripts, the CI
+  workflow and configuration files) is licensed under the **MIT License** — see
+  `LICENSE`.
 - **Data** (the de-identified surface-EMG recordings listed below) is released
   into the public domain under the **Creative Commons CC0 1.0 Universal**
   dedication — see `LICENSE-CC0-1.0.txt` or

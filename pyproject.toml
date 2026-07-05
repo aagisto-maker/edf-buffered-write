@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "edf-buffered-write"
-version = "2.3.0"
+version = "2.4.0"
 description = "A buffer-then-flush EDF/EDF+ writer and a library-independent round-trip integrity test for real-time biopotential streaming."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "GPL-3.0-or-later" }
+license = { text = "MIT" }
 authors = [{ name = "Ángel Agis-Torres", email = "aagisto@ucm.es" }]
 keywords = [
     "EDF",
