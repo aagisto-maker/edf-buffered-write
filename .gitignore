@@ -10,3 +10,8 @@ real_buffered.edf
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# packaging / build
+*.egg-info/
+build/
+dist/

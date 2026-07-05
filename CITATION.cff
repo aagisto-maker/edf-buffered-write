@@ -1,13 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite both the article and the software."
-title: "edf-buffered-write: reproducibility package for buffered EDF writing"
-version: 2.2.0
-date-released: "2026-07-04"
+title: "edf-buffered-write: a buffer-then-flush EDF/EDF+ writer and a round-trip integrity test"
+version: 2.3.0
+date-released: "2026-07-05"
 authors:
   - family-names: "Agis-Torres"
     given-names: "Ángel"
-    affiliation: "Faculty of Pharmacy, Universidad Complutense de Madrid"
-license: GPL-3.0
+    orcid: "https://orcid.org/0000-0002-3548-7264"
+    affiliation: "Department of Physiology (Faculty of Pharmacy), Universidad Complutense de Madrid"
+license: GPL-3.0-or-later
 repository-code: "https://github.com/aagisto-maker/edf-buffered-write"
 doi: 10.5281/zenodo.21163099
 keywords:
@@ -16,6 +17,7 @@ keywords:
   - pyedflib
   - electromyography
   - biopotential acquisition
+  - data integrity
   - reproducibility
 preferred-citation:
   type: article
@@ -24,4 +26,4 @@ preferred-citation:
     - family-names: "Agis-Torres"
       given-names: "Ángel"
   year: 2026
-  notes: "Manuscript under review."
+  journal: "Journal of Open Research Software"
