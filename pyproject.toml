@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "edf-buffered-write"
-version = "2.4.0"
+version = "2.5.0"
 description = "A buffer-then-flush EDF/EDF+ writer and a library-independent round-trip integrity test for real-time biopotential streaming."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -19,6 +19,18 @@ keywords = [
     "data integrity",
     "reproducibility",
 ]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
 dependencies = ["numpy", "pyedflib"]
 
 [project.optional-dependencies]
@@ -27,6 +39,7 @@ repro = ["scipy", "matplotlib", "EDFlib-Python", "edfio"]
 test = ["pytest"]
 
 [project.urls]
+Homepage = "https://github.com/aagisto-maker/edf-buffered-write"
 Repository = "https://github.com/aagisto-maker/edf-buffered-write"
 Archive = "https://doi.org/10.5281/zenodo.21163099"
 

@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite both the article and the software."
 title: "edf-buffered-write: a buffer-then-flush EDF/EDF+ writer and a round-trip integrity test"
-version: 2.4.0
-date-released: "2026-07-05"
+version: 2.5.0
+date-released: "2026-07-06"
 authors:
   - family-names: "Agis-Torres"
     given-names: "Ángel"
@@ -21,9 +21,9 @@ keywords:
   - reproducibility
 preferred-citation:
   type: article
-  title: "edf-buffered-write: a buffer-then-flush writer and a round-trip integrity test that prevent and detect silent corruption of European Data Format recordings"
+  title: "Silent corruption of European Data Format recordings during real-time biopotential streaming: a buffered-write solution"
   authors:
     - family-names: "Agis-Torres"
       given-names: "Ángel"
   year: 2026
-  journal: "Journal of Open Research Software"
+  notes: "Manuscript submitted."

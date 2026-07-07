@@ -10,6 +10,8 @@ Data Format recordings during real-time biopotential streaming.
 
 The DOI above is the *concept* DOI and always resolves to the latest version.
 
+**Licensing at a glance:** the software (the `edf_buffered_write` library and all `.py` scripts) is under the **MIT License** (`LICENSE`); the two de-identified `.edf` recordings are in the public domain under **CC0-1.0** (`LICENSE-CC0-1.0.txt`). See `DATA_LICENSE.md` for exactly which files each licence covers.
+
 ## The problem
 
 Real-time acquisition hardware delivers short blocks (often 10–100 samples per
@@ -167,9 +169,9 @@ so downstream projects may inherit the fix directly.
 
 ## How to cite
 
-- Agis-Torres, Á. (2026). *edf-buffered-write: a buffer-then-flush writer and a
-  round-trip integrity test that prevent and detect silent corruption of European
-  Data Format recordings.* Software metapaper, Journal of Open Research Software.
+- Agis-Torres, Á. (2026). *Silent corruption of European Data Format recordings
+  during real-time biopotential streaming: a buffered-write solution.* Manuscript
+  submitted.
 - Agis-Torres, Á. (2026). *edf-buffered-write* [Software]. Zenodo.
   https://doi.org/10.5281/zenodo.21163099
 

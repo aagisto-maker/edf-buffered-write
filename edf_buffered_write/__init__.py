@@ -17,7 +17,7 @@ writers.
 import numpy as np
 
 __all__ = ["BufferedEdfWriter"]
-__version__ = "2.3.0"
+__version__ = "2.5.0"
 
 
 class BufferedEdfWriter:

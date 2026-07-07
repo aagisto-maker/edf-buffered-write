@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "edf-buffered-write: a buffer-then-flush EDF/EDF+ writer and a round-trip integrity test",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "language": "eng",
   "access_right": "open",
   "license": "MIT",
@@ -12,7 +12,7 @@
       "orcid": "0000-0002-3548-7264"
     }
   ],
-  "description": "<p>An open-source Python library and reproducibility package accompanying the software metapaper <em>edf-buffered-write: a buffer-then-flush writer and a round-trip integrity test that prevent and detect silent corruption of European Data Format recordings</em> (Journal of Open Research Software).</p><p>When real-time acquisition software writes sub-record device blocks straight to an incremental EDF writer, each write commits a full data record padded to length: the resulting EDF+ file is structurally valid yet inflated by the record-to-block ratio, with attenuated RMS amplitude and a distorted power spectrum, and no error is raised. The package provides two remedies: a reusable <strong>buffer-then-flush</strong> writer (<code>edf_buffered_write.BufferedEdfWriter</code>) that commits only complete records, and a library-independent <strong>round-trip integrity test</strong> that compares reported duration, RMS amplitude and power spectral density. It also bundles the characterisation harness (a configuration sweep and a comparison of three EDF writers: pyedflib and EDFlib-Python, both built on van Beelen's EDFlib, and the independent edfio) and reproduces the failure and its remedy on two real surface-EMG recordings acquired with independent hardware chains (a BITalino board and an Arduino-compatible board with a MyoWare 2.0 sensor), included here as de-identified EDF+ files.</p><p><strong>Licensing:</strong> the code is released under the MIT License; the two de-identified surface-EMG recordings are released into the public domain under CC0-1.0 (see DATA_LICENSE.md).</p>",
+  "description": "<p>An open-source Python library and reproducibility package accompanying the manuscript <em>Silent corruption of European Data Format recordings during real-time biopotential streaming: a buffered-write solution</em> (submitted).</p><p>When real-time acquisition software writes sub-record device blocks straight to an incremental EDF writer, each write commits a full data record padded to length: the resulting EDF+ file is structurally valid yet inflated by the record-to-block ratio, with attenuated RMS amplitude and a distorted power spectrum, and no error is raised. The package provides two remedies: a reusable <strong>buffer-then-flush</strong> writer (<code>edf_buffered_write.BufferedEdfWriter</code>) that commits only complete records, and a library-independent <strong>round-trip integrity test</strong> that compares reported duration, RMS amplitude and power spectral density. It also bundles the characterisation harness (a configuration sweep and a comparison of three EDF writers: pyedflib and EDFlib-Python, both built on van Beelen's EDFlib, and the independent edfio) and reproduces the failure and its remedy on two real surface-EMG recordings acquired with independent hardware chains (a BITalino board and an Arduino-compatible board with a MyoWare 2.0 sensor), included here as de-identified EDF+ files.</p><p><strong>Licensing:</strong> the code is released under the MIT License; the two de-identified surface-EMG recordings are released into the public domain under CC0-1.0 (see DATA_LICENSE.md).</p>",
   "keywords": [
     "European Data Format",
     "EDF+",
