@@ -21,7 +21,7 @@ keywords:
   - reproducibility
 preferred-citation:
   type: article
-  title: "Silent corruption of European Data Format recordings during real-time biopotential streaming: a buffered-write solution"
+  title: "Silent corruption of EDF recordings during real-time biopotential streaming: a cross-implementation characterisation and a buffered-write solution"
   authors:
     - family-names: "Agis-Torres"
       given-names: "Ángel"

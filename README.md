@@ -169,9 +169,9 @@ so downstream projects may inherit the fix directly.
 
 ## How to cite
 
-- Agis-Torres, Á. (2026). *Silent corruption of European Data Format recordings
-  during real-time biopotential streaming: a buffered-write solution.* Manuscript
-  submitted.
+- Agis-Torres, Á. (2026). *Silent corruption of EDF recordings during real-time
+  biopotential streaming: a cross-implementation characterisation and a
+  buffered-write solution.* Manuscript submitted.
 - Agis-Torres, Á. (2026). *edf-buffered-write* [Software]. Zenodo.
   https://doi.org/10.5281/zenodo.21163099
 
@@ -180,7 +180,7 @@ A `CITATION.cff` file is provided for automatic citation export.
 ## Declaration of generative AI
 
 The code in this repository was developed with the assistance of Claude
-(Anthropic), and was reviewed and tested by the author.
+(Anthropic, model Opus 4.7), and was reviewed and tested by the author.
 
 ## License
 
